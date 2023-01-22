@@ -33,9 +33,3 @@
 </script>
 
 <div id={divId} class="map" bind:this={mapDiv} />
-
-<style>
-	.map {
-		width: 100%;
-	}
-</style>
