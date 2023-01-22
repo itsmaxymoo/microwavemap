@@ -1,9 +1,9 @@
 <script>
 	
-    import Header from "./Header.svelte";
+    import MainView from "./MainView.svelte";
 
 </script>
 
 <div class="content">
-	<Header/>
+	<MainView/>
 </div>
