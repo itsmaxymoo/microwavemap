@@ -3,12 +3,20 @@
 	import L from "leaflet";
 	import { onMount } from "svelte";
 
+	let mapDiv: HTMLElement = null;
 	export let divId: string = "map";
 	export let initialLatLng: [number, number] = [0, 0];
 	export let initialZoomLevel: number = 10;
 
+	export let height: string = "400px";
+	export let width: string = "400px";
+
 	// Wait for DOM to load, then
 	onMount(async () => {
+		// Required: set height of map div
+		mapDiv.style.height = height;
+		mapDiv.style.width = width;
+
 		// Create map
 		let map: L.Map = L.map("map").setView(
 			new L.LatLng(...initialLatLng),
@@ -24,11 +32,10 @@
 	});
 </script>
 
-<div id={divId} class="map" />
+<div id={divId} class="map" bind:this={mapDiv} />
 
 <style>
 	.map {
-		height: 90vh;
 		width: 100%;
 	}
 </style>
