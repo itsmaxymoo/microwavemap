@@ -15,8 +15,8 @@ class _Location {
 		
 		let coordArray = coords.split(/\s*,\s*/);
 
-		this.lat = parseFloat(coords[0]);
-		this.lng = parseFloat(coords[1]);
+		this.lat = parseFloat(coordArray[0]);
+		this.lng = parseFloat(coordArray[1]);
 	}
 }
 
