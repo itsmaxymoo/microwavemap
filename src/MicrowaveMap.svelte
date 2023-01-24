@@ -23,6 +23,8 @@
                 <p>
                     {#if loc.access == "monetary"}
                         It may cost money to access this microwave.
+                    {:else if loc.access == "building"}
+                        You may need special access to enter this area.
                     {/if}
                 </p>
             {/if}
