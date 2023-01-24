@@ -13,13 +13,12 @@
     {#each locations as loc}
         <MapMarker lat={loc.lat} lng={loc.lng}>
             <p class="has-text-weight-semibold is-size-6">{loc.building}</p>
-            <p>
-                {#if loc.room_exact}
-                    Room: {loc.room_exact}
-                {:else}
-                    {loc.room_approx}
-                {/if}
-            </p>
+            {#if loc.room_approx}
+                <p>{loc.room_approx}</p>
+            {/if}
+            {#if loc.room_exact}
+                <p>Room: {loc.room_exact}</p>
+            {/if}
         </MapMarker>
     {/each}
 </Map>
