@@ -8,7 +8,7 @@ let input_files = fs.readdirSync(input_path).map(inf => input_path + "/" + inf);
 input_files = input_files.map(file => fs.readFileSync(file));
 
 class _Location {
-	constructor(building, room_exact, room_approx, coords) {
+	constructor(building, room_exact, room_approx, coords, access = "public") {
 		this.building = building;
 		this.room_exact = room_exact;
 		this.room_approx = room_approx;
@@ -17,6 +17,8 @@ class _Location {
 
 		this.lat = parseFloat(coordArray[0]);
 		this.lng = parseFloat(coordArray[1]);
+
+		this.access = access;
 	}
 }
 
