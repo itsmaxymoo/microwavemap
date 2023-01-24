@@ -19,6 +19,13 @@
             {#if loc.room_exact}
                 <p>Room: {loc.room_exact}</p>
             {/if}
+            {#if loc.access && loc.access != "public"}
+                <p>
+                    {#if loc.access == "monetary"}
+                        It may cost money to access this microwave.
+                    {/if}
+                </p>
+            {/if}
         </MapMarker>
     {/each}
 </Map>

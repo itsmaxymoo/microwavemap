@@ -31,7 +31,8 @@ input_files.forEach((file) => {
 		data["building"],
 		data["room_exact"],
 		data["room_approx"],
-		data["coords"]
+		data["coords"],
+		data["access"]
 	);
 
 	locationArray.push(location);
