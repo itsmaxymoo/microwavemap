@@ -7,11 +7,14 @@
 
 	export let lat: number = 0;
 	export let lng: number = 0;
+	export let icon = new L.Icon.Default();
 
 	const map: L.Map = getContext("leaflet-map");
 
 	onMount(() => {
-		let marker: L.Marker = L.marker(new L.LatLng(lat, lng));
+		let marker: L.Marker = L.marker(new L.LatLng(lat, lng), {
+			icon: icon
+		});
 		if (popupBodyContent.innerHTML) {
 			marker.bindPopup(popupBodyContent.innerHTML);
 		}
