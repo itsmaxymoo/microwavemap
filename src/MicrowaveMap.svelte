@@ -47,8 +47,8 @@
             icon={getIconByAccess(loc.access)}
         >
             <p class="has-text-weight-semibold is-size-6">{loc.building}</p>
-            {#if loc.room_approx}
-                <p>{loc.room_approx}</p>
+            {#if loc.notes}
+                <p>{loc.notes}</p>
             {/if}
             {#if loc.room_exact}
                 <p>Room: {loc.room_exact}</p>
