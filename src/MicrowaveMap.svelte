@@ -47,12 +47,15 @@
             icon={getIconByAccess(loc.access)}
         >
             <p class="has-text-weight-semibold is-size-6">{loc.building}</p>
-            {#if loc.notes}
-                <p>{loc.notes}</p>
-            {/if}
+
             {#if loc.room_exact}
                 <p>Room: {loc.room_exact}</p>
             {/if}
+
+            {#if loc.notes}
+                <p>{loc.notes}</p>
+            {/if}
+
             {#if loc.access && loc.access != "public"}
                 <p>
                     {#if loc.access == "monetary"}
@@ -62,6 +65,18 @@
                     {/if}
                 </p>
             {/if}
+
+            <a
+                href="https://www.google.com/maps/dir/?api=1&destination={loc.lat +
+                    ',' +
+                    loc.lng}&travelmode=walking"
+            >
+                <button
+                    class="button is-small is-fullwidth has-text-centered is-link is-outlined"
+                >
+                    Navigate
+                </button>
+            </a>
         </MapMarker>
     {/each}
 </Map>
