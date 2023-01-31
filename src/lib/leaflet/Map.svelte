@@ -12,6 +12,7 @@
 	export let width: string = "400px";
 
 	let map: L.Map;
+	let mapLoaded: boolean = false;
 
 	// Create map
 	map = L.map(L.DomUtil.create("div")).setView(
@@ -39,7 +40,17 @@
 		mapDiv.style.width = width;
 
 		map.invalidateSize();
+
+		mapLoaded = true;
 	});
+
+	$: {
+		height;
+		if (mapLoaded) {
+			mapDiv.style.height = height;
+			map.invalidateSize();
+		}
+	}
 </script>
 
 <div id={divId} class="map" bind:this={mapDiv} />

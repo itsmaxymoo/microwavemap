@@ -5,6 +5,8 @@
     import locations from "../data/locations.json";
     import MapMarker from "./lib/leaflet/MapMarker.svelte";
 
+    export let height = 400;
+
     function generateIcon(color: string = "#0000FF"): L.DivIcon {
         let element: HTMLElement = document.createElement("div");
 
@@ -37,7 +39,7 @@
 <Map
     initialLatLng={[40.800901, -77.86094]}
     initialZoomLevel={17}
-    height="844px"
+    height={height + "px"}
     width="100%"
 >
     {#each locations as loc}
