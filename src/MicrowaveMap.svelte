@@ -4,6 +4,7 @@
     import Map from "./lib/leaflet/Map.svelte";
     import locations from "../data/locations.json";
     import MapMarker from "./lib/leaflet/MapMarker.svelte";
+    import { repoUrl } from "./lib/const";
 
     export let height = 400;
 
@@ -79,6 +80,14 @@
                     Navigate
                 </button>
             </a>
+            <p class="has-text-centered m-0 p-0 pt-3">
+                <a
+                    href="{repoUrl}/tree/main/data/locations/{loc.id}.yml"
+                    class="has-text-danger"
+                >
+                    Edit
+                </a>
+            </p>
         </MapMarker>
     {/each}
 </Map>
