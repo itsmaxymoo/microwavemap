@@ -8,7 +8,6 @@
     "dev": "npm run build-data && vite",
     "prebuild": "rm -rdf dist",
     "build": "npm run build-data && vite build",
-    "postbuild": "touch dist/.nojekyll && echo microwavemap.itsmaxymoo.com > dist/CNAME",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "deploy": "npm run build && npx gh-pages -d dist"
   },
