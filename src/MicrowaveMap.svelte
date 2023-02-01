@@ -28,7 +28,8 @@
         }
 
         // Leaflet is a pain
-        return new L.Icon.Default({ iconUrl: "../../../.." + iconUrl });
+        iconUrl = "../../../.." + iconUrl;
+        return new L.Icon.Default({ iconUrl: iconUrl, iconRetinaUrl: iconUrl });
     }
 </script>
 
