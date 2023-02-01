@@ -29,6 +29,10 @@ input_files.forEach((file) => {
 	let _file = fs.readFileSync(file);
 	let data = yaml.load(_file);
 
+	if (data["output"] === "false") {
+		return;
+	}
+
 	let location = new _Location(
 		path.basename(file).slice(0, -4),
 		data["building"],
