@@ -6,34 +6,29 @@
     import MapMarker from "./lib/leaflet/MapMarker.svelte";
     import { repoUrl } from "./lib/const";
 
+    import publicMarker from "../assets/markers/public.png";
+    import monetaryMarker from "../assets/markers/monetary.png";
+    import buildingAccessMarker from "../assets/markers/building.png";
+
     export let height = 400;
 
-    function generateIcon(color: string = "#0000FF"): L.DivIcon {
-        let element: HTMLElement = document.createElement("div");
+    function getIconByAccess(access: string): L.Icon.Default {
+        let iconUrl;
 
-        element.style.width = "0";
-        element.style.height = "0";
-        element.style.borderLeft = "15px solid transparent";
-        element.style.borderRight = "15px solid transparent";
-        element.style.borderTop = "50px solid " + color;
-
-        element.style.position = "absolute";
-        element.style.left = "-9px";
-        element.style.top = "-25px";
-
-        return L.divIcon({ className: "", html: element });
-    }
-
-    function getIconByAccess(access: string): L.DivIcon {
         switch (access) {
             case "monetary":
-                return generateIcon("#ff9900");
+                iconUrl = monetaryMarker;
                 break;
             case "building":
-                return generateIcon("#ff0000");
+                iconUrl = buildingAccessMarker;
+                break;
             default:
-                return generateIcon("#0066ff");
+                iconUrl = publicMarker;
+                break;
         }
+
+        // Leaflet is a pain
+        return new L.Icon.Default({ iconUrl: "../../../.." + iconUrl });
     }
 </script>
 
