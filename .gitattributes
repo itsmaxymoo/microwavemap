@@ -2,3 +2,4 @@ _sass/bulma/**/* linguist-vendored=true
 _sass/maxs-dark-bulma.sass linguist-vendored=true
 Gemfile linguist-vendored=true
 Gemfile.lock linguist-vendored=true
+assets/leaflet/**/* linguist-vendored=true

@@ -1,7 +1,9 @@
 ---
 head: |
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
-  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+  <link rel="stylesheet" href="/assets/leaflet/leaflet.css"
+  integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+  <script src="/assets/leaflet/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+  crossorigin=""></script>
 ---
 
 <div id="microwave-map" style="height: 700px; width: 100%;"></div>
@@ -18,6 +20,8 @@ head: |
 		initialZoom
 	);
 
+	scaleMap();
+
 	// Set tiles
 	L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 		maxZoom: 19,
@@ -25,21 +29,24 @@ head: |
 			'&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 	}).addTo(map);
 
+	// Load map data
+	fetch("{{ site.baseurl }}/locations.json")
+		.then((response) => response.json())
+		.then((json) => populateMap(json));
 
-	// On DOM load
-	document.body.onload = () => {
+	window.onresize = () => {
 		scaleMap();
 	};
 
 
 	// Function to properly scale map
-	function scaleMap(){
+	function scaleMap() {
 		let usedHeight = 0;
 
-		for(let i = 0; i < document.body.children.length; i++){
+		for (let i = 0; i < document.body.children.length; i++) {
 			let child = document.body.children[i];
 
-			if(child.id == "microwave-map"){
+			if (child.id == "microwave-map") {
 				continue;
 			}
 
@@ -48,6 +55,21 @@ head: |
 
 		mapDiv.style.height = window.innerHeight - usedHeight + "px";
 		map.invalidateSize();
+	}
+
+
+	// Function to load map data
+	function populateMap(data) {
+		data.forEach(element => {
+			latLng = element.coords.split(/[\s,]+/);
+			let iconFile = element.access + ".png";
+
+			let marker = L.marker(new L.LatLng(...latLng), {
+				icon: new L.Icon.Default({ iconUrl: iconFile, iconRetinaUrl: iconFile })
+			});
+
+			marker.addTo(map);
+		});
 	}
 
 </script>
