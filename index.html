@@ -1,4 +1,53 @@
 ---
+head: |
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 ---
 
-test index
+<div id="microwave-map" style="height: 700px; width: 100%;"></div>
+
+<script type="text/javascript">
+
+	const mapDiv = document.getElementById("microwave-map");
+	const initialLatLng = [40.800901, -77.86094];
+	const initialZoom = 16;
+
+	// Create map
+	let map = L.map("microwave-map").setView(
+		new L.LatLng(...initialLatLng),
+		initialZoom
+	);
+
+	// Set tiles
+	L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+		maxZoom: 19,
+		attribution:
+			'&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+	}).addTo(map);
+
+
+	// On DOM load
+	document.body.onload = () => {
+		scaleMap();
+	};
+
+
+	// Function to properly scale map
+	function scaleMap(){
+		let usedHeight = 0;
+
+		for(let i = 0; i < document.body.children.length; i++){
+			let child = document.body.children[i];
+
+			if(child.id == "microwave-map"){
+				continue;
+			}
+
+			usedHeight += child.clientHeight;
+		}
+
+		mapDiv.style.height = window.innerHeight - usedHeight + "px";
+		map.invalidateSize();
+	}
+
+</script>
