@@ -84,7 +84,7 @@ head: |
 
 			// Create marker popup
 			marker.bindPopup("<h5>" + element.building + "</h5>"
-				+ (element.room_exact ? ("<p><b>Room: </b>" + element.room_exact + "</p>") : "")
+				+ (element.room_exact ? ("<p class='m-0 p-0 pb-2'><b>Room: </b>" + element.room_exact + "</p>") : "")
 				+ "<p class='m-0 p-0 pb-4'><b>Where: </b>" + element.notes + "</p>"
 				+ (getAccessString(element.access) ? ("<p class='m-0 p-0 pb-2'>" + getAccessString(element.access) + "</p>") : "")
 				+ "<a href='https://www.google.com/maps/dir/?api=1&destination=" + latLng[0] + "," + latLng[1] + "&travelmode=walking'><button class='button is-small is-fullwidth has-text-centered is-link is-outlined'>Navigate</button></a><p class='has-text-centered m-0 p-0 pt-3'><a href='{{ site.repo_url }}/tree/main/_locations/" + element.slug + ".md' class='has-text-danger'>Edit</a></p>");
