@@ -20,5 +20,5 @@ coords: 40.800435, -77.862579
 access: public
 
 # To prevent this example file from being rendered.
-output: "false"
+skip: true
 ---

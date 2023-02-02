@@ -61,6 +61,10 @@ head: |
 	// Function to load map data
 	function populateMap(data) {
 		data.forEach(element => {
+			if(element.skip){
+				return;
+			}
+
 			latLng = element.coords.split(/[\s,]+/);
 			let iconFile = element.access + ".png";
 
