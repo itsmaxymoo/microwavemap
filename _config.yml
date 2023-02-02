@@ -1,0 +1,42 @@
+title: Microwave Map PSU
+author: Max Loiacono
+description: Public Microwaves @ Penn State
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://microwavemap.itsmacymoo.com" # the base hostname & protocol for your site, e.g. http://example.com
+repo_url: "https://github.com/itsmaxymoo/microwavemap"
+
+collections:
+
+  locations:
+    output: false
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "base"
+
+# Build settings
+timezone: America/New_York
+markdown: kramdown
+sass:
+  style: compressed
+
+exclude:
+  - LICENSE.md
+  - LICENSE
+  - .git*
+  - README.md
+  - TODO.md
+  - "*.sh"
+  - .vscode/
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/
+  - CNAME

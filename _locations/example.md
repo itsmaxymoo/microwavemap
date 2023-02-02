@@ -1,3 +1,4 @@
+---
 # This is an example file defining a microwave location.
 
 # (REQUIRED) The name of the building that contains the microwave
@@ -20,3 +21,4 @@ access: public
 
 # To prevent this example file from being rendered.
 output: "false"
+---
