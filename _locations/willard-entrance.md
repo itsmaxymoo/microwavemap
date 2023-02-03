@@ -1,7 +1,7 @@
 ---
 building: Willard
 room_exact: ""
-notes: Main entrance, near vending machines
+notes: East entrance, near vending machines
 coords: 40.795920, -77.864041
 access: public
 ---
