@@ -1,0 +1,67 @@
+---
+title: Add New Microwave
+permalink: "/add"
+---
+
+# Add New Microwave
+
+The preferred way to submit a new location is by submitting a pull request
+on [Github]({{ site.repo_url }}).
+
+Alternatively, fill out the form below.
+
+---
+
+<div class="field">
+	<label class="label">Building</label>
+	<div class="control">
+		<input class="input" type="text" placeholder="ex: Redifer Commons" id="building-name">
+	</div>
+</div>
+
+<div class="field">
+	<label class="label">Exact Room Number (Optional)</label>
+	<div class="control">
+		<input class="input" type="text" placeholder="ex: 360" id="room-number">
+	</div>
+</div>
+
+<div class="field">
+	<label class="label">Directions</label>
+	<div class="control">
+		<input class="input" type="text" placeholder="ex: In the food court near the bottom of the stairs"
+			id="directions">
+	</div>
+</div>
+
+<div class="field">
+	<label class="label">Microwave Access</label>
+	<div class="control">
+		<div class="select is-fullwidth">
+			<select id="access">
+				<option>Public, free</option>
+				<option>May cost money</option>
+				<option>Building is restricted</option>
+			</select>
+		</div>
+	</div>
+</div>
+
+<div class="field">
+	<div class="control">
+		<button class="button is-link is-fullwidth" id="submit">Submit</button>
+	</div>
+</div>
+
+<script type="text/javascript">
+
+	document.getElementById("submit").onclick = () => {
+		let building = document.getElementById("building-name").value;
+		let room = document.getElementById("room-number").value;
+		let directions = document.getElementById("directions").value;
+		let access = document.getElementById("access").value;
+
+		sendEmail("{{ site.contrib_email }}", `[MWM] New Microwave at ${building}`, `Building: ${building}\n\nRoom: ${room}\n\nDirections: ${directions}\n\nAccess: ${access}`);
+	};
+
+</script>

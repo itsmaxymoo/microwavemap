@@ -1,6 +1,6 @@
 - name: Map
   url: "/"
-- name: Add New
+- name: Add Microwave
   url: "/add"
 - name: About/Install
   url: "/about"

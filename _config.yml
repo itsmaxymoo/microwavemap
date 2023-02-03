@@ -4,6 +4,7 @@ description: Public Microwaves @ Penn State
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://microwavemap.itsmacymoo.com" # the base hostname & protocol for your site, e.g. http://example.com
 repo_url: "https://github.com/itsmaxymoo/microwavemap"
+contrib_email: "test@example.com"
 
 collections:
 
@@ -16,7 +17,7 @@ defaults:
       path: ""
       type: "pages"
     values:
-      layout: "base"
+      layout: "page"
 
 # Build settings
 timezone: America/New_York
