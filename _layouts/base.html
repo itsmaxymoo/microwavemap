@@ -47,6 +47,22 @@
 			<div class="hero-body">
 				<h1 class="title mb-1">{{ site.title }}</h1>
 			</div>
+
+			<div class="hero-foot">
+				<nav class="tabs is-boxed is-fullwidth">
+					<div class="container">
+						<ul>
+							{% for nav_item in site.data.nav %}
+
+								<li {% if nav_item.url == page.url %}class="is-active"{% endif %}>
+									<a href="{{ nav_item.url }}">{{ nav_item.name }}</a>
+								</li>
+
+							{% endfor %}
+						</ul>
+					</div>
+				</nav>
+			</div>
 		</section>
 	</header>
 

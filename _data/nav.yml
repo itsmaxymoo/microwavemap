@@ -1,0 +1,6 @@
+- name: Map
+  url: "/"
+- name: Add New
+  url: "/add"
+- name: About/Install
+  url: "/about"
