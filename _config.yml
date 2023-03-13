@@ -2,7 +2,7 @@ title: Microwave Map PSU
 author: Max Loiacono
 description: Public Microwaves @ Penn State
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://microwavemap.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://microwavemap.itsmaxymoo.com" # the base hostname & protocol for your site, e.g. http://example.com
 repo_url: "https://github.com/itsmaxymoo/microwavemap"
 contrib_email: "contribute@microwavemap.com"
 
